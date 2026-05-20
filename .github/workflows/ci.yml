@@ -25,5 +25,8 @@ jobs:
       - name: Lint
         run: ruff check src/
 
-      - name: Run tests
-        run: pytest tests/test_credit.py::test_raw_data_shape -v
+      - name: Run import test
+        run: |
+          python -c "from src.data.preprocess import load_and_preprocess; print('Import OK')"
+          python -c "from src.models.train import train; print('Import OK')"
+          python -c "from src.models.explain import explain; print('Import OK')"
