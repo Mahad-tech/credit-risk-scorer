@@ -1,0 +1,29 @@
+name: Credit Risk CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install xgboost scikit-learn pandas numpy matplotlib shap joblib pytest ruff
+
+      - name: Lint
+        run: ruff check src/
+
+      - name: Run tests
+        run: pytest tests/test_credit.py::test_raw_data_shape -v
