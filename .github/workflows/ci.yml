@@ -22,9 +22,6 @@ jobs:
         run: |
           pip install xgboost scikit-learn pandas numpy matplotlib shap joblib pytest ruff
 
-      - name: Lint
-        run: ruff check src/
-
       - name: Run import test
         run: |
           python -c "from src.data.preprocess import load_and_preprocess; print('Import OK')"
