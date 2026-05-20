@@ -7,8 +7,8 @@ Predicts whether a loan applicant is a good or bad credit risk and explains why.
 
 | Metric | Score |
 |---|---|
-| Accuracy | see output |
-| ROC-AUC | see output |
+| Accuracy | 77.5% |
+| ROC-AUC | 0.79 |
 
 ## SHAP Summary Plot
 
